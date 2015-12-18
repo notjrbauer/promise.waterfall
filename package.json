@@ -1,6 +1,6 @@
 {
   "name": "promise.waterfall",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Runs the an array of promises in series, each passing their results to the next promise in the array.",
   "main": "index.js",
   "scripts": {
