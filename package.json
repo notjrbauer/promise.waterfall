@@ -1,0 +1,41 @@
+{
+  "name": "promise-waterfall",
+  "version": "1.0.0",
+  "description": "Runs the an array of promises in series, each passing their results to the next promise in the array.",
+  "main": "index.js",
+  "scripts": {
+    "test": "standard && tape test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/notjrbauer/promise-waterfall.git"
+  },
+  "keywords": [
+    "promise",
+    "array",
+    "series",
+    "waterfall",
+    "javascript",
+    "nodejs"
+  ],
+  "author": {
+    "name": "John Bauer",
+    "email": "notjrbauer@gmail.com"
+  },
+  "files": [
+    "index.js"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/notjrbauer/promise-waterfall/issues"
+  },
+  "homepage": "https://github.com/notjrbauer/promise-waterfall#readme",
+  "devDependencies": {
+    "standard": "^5.4.1",
+    "tape": "^4.2.2"
+  },
+  "dependencies": {
+    "assert": "^1.3.0",
+    "bluebird": "^3.1.1"
+  }
+}
