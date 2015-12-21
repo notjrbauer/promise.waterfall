@@ -2,7 +2,6 @@
 
 var test = require('tape')
 var partial = require('ap').partial
-var Promise = require('bluebird')
 var promiseWaterfall = require('./')
 
 var addOne = makeAdder(1)
