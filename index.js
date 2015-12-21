@@ -1,6 +1,5 @@
 'use strict'
 
-var Promise = require('bluebird')
 var curry = require('ap').curry
 var assert = require('assert')
 
