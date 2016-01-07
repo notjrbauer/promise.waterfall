@@ -1,6 +1,6 @@
 'use strict'
 
-var test = require('tape')
+var test = require('blue-tape')
 var partial = require('ap').partial
 var promiseWaterfall = require('./')
 
@@ -23,29 +23,32 @@ function rejection () {
 }
 
 test('run array of promises sequentially', function (t) {
-  promiseWaterfall([
+  t.plan(1)
+
+  return promiseWaterfall([
     addOne,
     addTwo
-  ]).then(function (sum) {
+  ])
+  .then(function (sum) {
     t.equals(sum, 3)
-    t.end()
   })
 })
 
 test('reject array', function (t) {
   t.plan(1)
 
-  promiseWaterfall([
+  return promiseWaterfall([
     addOne,
     addTwo,
     rejection
-  ]).catch(partial(t.pass, 'error caught'))
+  ])
+  .catch(partial(t.pass, 'error caught'))
 })
 
 test('non-promise return', function (t) {
   t.plan(1)
 
-  promiseWaterfall([
+  return promiseWaterfall([
     addOne,
     addTwo,
     increment

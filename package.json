@@ -31,8 +31,8 @@
   },
   "homepage": "https://github.com/notjrbauer/promise-waterfall#readme",
   "devDependencies": {
-    "standard": "^5.4.1",
-    "tape": "^4.2.2"
+    "blue-tape": "^0.1.11",
+    "standard": "^5.4.1"
   },
   "dependencies": {
     "ap": "^0.2.0",
