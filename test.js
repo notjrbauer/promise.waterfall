@@ -14,6 +14,10 @@ function makeAdder (a) {
   }
 }
 
+function increment (b) {
+  return ++b
+}
+
 function rejection () {
   return Promise.reject(new Error('andrew joslin'))
 }
@@ -36,4 +40,17 @@ test('reject array', function (t) {
     addTwo,
     rejection
   ]).catch(partial(t.pass, 'error caught'))
+})
+
+test('non-promise return', function (t) {
+  t.plan(1)
+
+  promiseWaterfall([
+    addOne,
+    addTwo,
+    increment
+  ])
+  .then(function (sum) {
+    t.equals(sum, 4)
+  })
 })
