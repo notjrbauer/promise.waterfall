@@ -1,23 +1,9 @@
 'use strict'
 
-var curry = require('ap').curry
-var assertOk = require('assert-ok')
-
-module.exports = promiseWaterfall
-
-var waterfall = function waterfall (promise, callback) {
-  return promise.then(callback)
-}
-
-var reduce = curry(function reduce (fn, value) {
-  return value.reduce(fn, Promise.resolve())
-})
-
-var reduceWaterfall = reduce(waterfall)
-
-function promiseWaterfall (callbacks) {
-  assertOk(callbacks, 'missing argument promiseWaterfall.callbacks')
-
-  if (!Array.isArray(callbacks)) return promiseWaterfall([callbacks])
-  return reduceWaterfall(callbacks)
+module.exports = function promiseWaterfall (callbacks) {
+  // Don't assume we're running in an environment with promises
+  var first = callbacks[0]()
+  return callbacks.slice(1).reduce(function (accumulator, callback) {
+    return accumulator.then(callback)
+  }, Promise.resolve(first))
 }

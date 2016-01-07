@@ -6,28 +6,26 @@ Runs an array of promises in series, each passing their results to the next prom
 ## Install
 `npm install promise.waterfall --save`
 
-## `promiseWaterfall([arrayOfPromises])` -> `new Promise`
+## `promiseWaterfall(callbacks)` -> `Promise`
 
-Runs the array of promises in series, each passing their results to the next function in the array.
+### `callbacks: Array<Function>`
 
-Returns a promise
+Runs the array of callbacks in series. If a callback returns a promise, each callback passes its results to the next function in the array.
 
-### Arguments
-- `arrayOfPromises` - an array of promises
+Returns a promise that is resolved with the return value of the final item in the array.
 
 ### Usage
 
 ```javascript
-var promiseWaterfall = require('promise.waterfall')
+var waterfall = require('promise.waterfall')
 
-promiseWaterfall([
-  addOne  // 1
-  addOne, // 2
-  addOne  // 3
-]).then(function (result) {
+waterfall([addOne, addOne, addOne]).then(function (result) {
   console.log(result) // 3
 })
-.catch(console.error)
+
+function addOne (number) {
+  return (number || 0) + 1
+}
 ```
 [promise-waterfall-icon]: https://nodei.co/npm/promise.waterfall.png?downloads=true
 [promise-waterfall-url]: https://npmjs.org/package/promise.waterfall
