@@ -35,8 +35,8 @@
     "standard": "^5.4.1"
   },
   "dependencies": {
-    "ap": "^0.2.0",
-    "assert-ok": "^1.0.0",
+    "ap": "~0.2.0",
+    "assert-ok": "~1.0.0",
     "cast-array": "~1.0.1"
   }
 }
