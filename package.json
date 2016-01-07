@@ -36,6 +36,7 @@
   },
   "dependencies": {
     "ap": "^0.2.0",
-    "assert-ok": "^1.0.0"
+    "assert-ok": "^1.0.0",
+    "cast-array": "~1.0.1"
   }
 }
