@@ -1,33 +1,39 @@
 # promise-waterfall
-Runs an array of promises in series, each passing their results to the next promise in the array.
+> Runs an array of promises in series, each passing their results to the next promise in the array.
 
 [![NPM][promise-waterfall-icon]][promise-waterfall-url]
 
 ## Install
-`npm install promise.waterfall --save`
 
-## `promiseWaterfall([arrayOfPromises])` -> `new Promise`
+```sh
+$ npm install promise.waterfall --save
+```
 
-Runs the array of promises in series, each passing their results to the next function in the array.
+## Usage
 
-Returns a promise
-
-### Arguments
-- `arrayOfPromises` - an array of promises
-
-### Usage
-
-```javascript
+```js
 var promiseWaterfall = require('promise.waterfall')
 
 promiseWaterfall([
   addOne  // 1
   addOne, // 2
   addOne  // 3
-]).then(function (result) {
-  console.log(result) // 3
-})
+])
+.then(console.log)
 .catch(console.error)
 ```
+
+## API
+
+#### `promiseWaterfall(functions)` -> `promise`
+
+Runs the array of functions in series, waiting for each to resolve and passing each result to the next function in the array.
+
+##### functions
+
+*Required*  
+Type: `array[function]`
+
+
 [promise-waterfall-icon]: https://nodei.co/npm/promise.waterfall.png?downloads=true
 [promise-waterfall-url]: https://npmjs.org/package/promise.waterfall
