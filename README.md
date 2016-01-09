@@ -27,12 +27,12 @@ promiseWaterfall([
 
 #### `promiseWaterfall(functions)` -> `promise`
 
-Runs the array of promises in series, waiting for each to resolve and passing each result to the next function in the array.
+Runs the array of functions in series, waiting for each to resolve and passing each result to the next function in the array.
 
 ##### functions
 
 *Required*
-Type: `array[function -> promise]`
+Type: `array[function]`
 
 
 [promise-waterfall-icon]: https://nodei.co/npm/promise.waterfall.png?downloads=true

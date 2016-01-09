@@ -34,5 +34,8 @@
     "standard": "^5.4.1",
     "tape": "^4.2.2",
     "ap": "^0.2.0"
+  },
+  "dependencies": {
+    "assert-ok": "^1.0.0"
   }
 }
