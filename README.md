@@ -32,7 +32,7 @@ Runs the array of promises in series, waiting for each to resolve and passing ea
 ##### functions
 
 *Required*
-Type: `array[Promise(function)]`
+Type: `array[function -> promise]`
 
 
 [promise-waterfall-icon]: https://nodei.co/npm/promise.waterfall.png?downloads=true
