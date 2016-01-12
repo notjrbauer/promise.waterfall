@@ -1,17 +1,9 @@
 'use strict'
 
-var Promise = require('bluebird')
-var assertOk = require('assert-ok')
-
-module.exports = promiseWaterfall
-
-function promiseWaterfall (callbacks) {
-  assertOk(callbacks, 'missing argument promiseWaterfall.callbacks')
-  if (!Array.isArray(callbacks)) return promiseWaterfall([callbacks])
-
-  return callbacks.reduce(waterfall, Promise.resolve())
-}
-
-function waterfall (promise, callback) {
-  return promise.then(callback)
+module.exports = function promiseWaterfall (callbacks) {
+  // Don't assume we're running in an environment with promises
+  var first = callbacks[0]()
+  return callbacks.slice(1).reduce(function (accumulator, callback) {
+    return accumulator.then(callback)
+  }, Promise.resolve(first))
 }

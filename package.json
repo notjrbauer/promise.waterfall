@@ -36,6 +36,5 @@
     "ap": "^0.2.0"
   },
   "dependencies": {
-    "assert-ok": "^1.0.0"
   }
 }
