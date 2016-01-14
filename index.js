@@ -5,5 +5,5 @@ module.exports = function promiseWaterfall (callbacks) {
   var first = callbacks[0]()
   return callbacks.slice(1).reduce(function (accumulator, callback) {
     return accumulator.then(callback)
-  }, Promise.resolve(first))
+  }, first)
 }
