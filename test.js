@@ -34,6 +34,17 @@ test('run array of promises sequentially', function (t) {
     })
 })
 
+test('run array consisting of only one promise', function (t) {
+  t.plan(1)
+
+  return promiseWaterfall([
+    addOne
+  ])
+  .then(function (sum) {
+    t.equals(sum, 1)
+  })
+})
+
 test('reject array', function (t) {
   t.plan(1)
 
