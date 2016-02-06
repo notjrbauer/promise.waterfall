@@ -4,7 +4,7 @@
   "description": "Runs an array of promises in series, each passing their results to the next promise in the array.",
   "main": "index.js",
   "scripts": {
-    "test": "standard && tape test.js"
+    "test": "standard && blue-tape test.js"
   },
   "repository": {
     "type": "git",
