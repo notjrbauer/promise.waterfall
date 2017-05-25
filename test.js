@@ -34,6 +34,16 @@ test('run array of promises sequentially', function (t) {
     })
 })
 
+test('run array consisting of zero promises', function (t) {
+  t.plan(1)
+
+  return promiseWaterfall([
+  ])
+  .then(function (result) {
+    t.equals(result, undefined)
+  })
+})
+
 test('run array consisting of only one promise', function (t) {
   t.plan(1)
 
