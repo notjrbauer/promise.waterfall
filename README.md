@@ -14,6 +14,15 @@ $ npm install promise.waterfall --save
 ```js
 var promiseWaterfall = require('promise.waterfall')
 
+function makeAdder (a) {
+  return function (b) {
+    b = b || 0
+    return Promise.resolve(a + b)
+  }
+}
+
+var addOne = makeAdder(1)
+
 promiseWaterfall([
   addOne  // 1
   addOne, // 2
