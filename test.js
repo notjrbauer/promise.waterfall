@@ -34,6 +34,18 @@ test('run array of promises sequentially', function (t) {
     })
 })
 
+test('run array of promises sequentially with an initialization parameter', function (t) {
+  t.plan(1)
+
+  return promiseWaterfall([
+    addOne,
+    addTwo
+  ], 10)
+    .then(function (sum) {
+      t.equals(sum, 13)
+    })
+})
+
 test('run array consisting of zero promises', function (t) {
   t.plan(1)
 
